@@ -1,6 +1,8 @@
 name: Code Coverage Summary
 run-name: ${{ github.actor }} is trying to track coverage...
 on:
+  push:
+    branches: [master]
   pull_request:
     branches: [master]
 jobs:
