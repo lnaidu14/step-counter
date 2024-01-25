@@ -1,0 +1,12 @@
+name: Code Coverage Summary
+run-name: ${{ github.actor }} is trying to track coverage...
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Collecting coverage..."
+      - name: Code Coverage Summary
+        uses: irongut/CodeCoverageSummary@v1.3.0
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "Bye..."
