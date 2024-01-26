@@ -25,6 +25,6 @@ jobs:
 
       - name: Run the tests and collect coverage
         run: npm run test:coverage
-      - name: Code Coverage Summary
-        uses: irongut/CodeCoverageSummary@v1.3.0
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
       - run: echo "🍏 This job's status is ${{ job.status }}."
