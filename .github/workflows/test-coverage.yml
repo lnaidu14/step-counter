@@ -12,16 +12,19 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - run: echo "Setting up Node.js version..."
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo "Collecting coverage..."
-      - run: npm i
-      - run: npm run test:coverage
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the tests and collect coverage
+        run: npm run test:coverage
       - name: Code Coverage Summary
         uses: irongut/CodeCoverageSummary@v1.3.0
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "Bye..."
